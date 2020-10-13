@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "forever start --id ip_checker -o out.log -e err.log main.js",
+    "stop": "forever stop ip_checker"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "forever": "^3.0.2"
+  }
+}
