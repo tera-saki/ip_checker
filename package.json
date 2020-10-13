@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "forever start --id ip_checker -o out.log -e err.log main.js",
+    "start": "forever start --id ip_checker -o out.log -e err.log src/main.js",
     "stop": "forever stop ip_checker"
   },
   "dependencies": {
