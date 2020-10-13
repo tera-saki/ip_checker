@@ -18,7 +18,7 @@ class IPChecker {
     if (!this.ipAddress) {
       message = `Initialized IPChecker.\n Current IP address is \`${ipAddress}\`.`
     } else {
-      message = `IP address changes detected.\n New IP address is ${ipAddress}.\n (Old address is ${this.ipAddress}.)`
+      message = `IP address changes detected.\n New IP address is \`${ipAddress}\`.\n (Old address is ${this.ipAddress}.)`
     }
 
     await axios.post(this.webhookURL, { text: message })
