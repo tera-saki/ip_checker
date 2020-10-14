@@ -1,10 +1,10 @@
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const axios = require('axios')
+const { webhookURL } = require('./config')
 
 class IPChecker {
-  constructor (webhookURL) {
-    this.webhookURL = webhookURL
+  constructor () {
     this.ipAddress = null
   }
   
@@ -16,12 +16,12 @@ class IPChecker {
   async sendAlert (ipAddress) {
     let message
     if (!this.ipAddress) {
-      message = `Initialized IPChecker.\n Current IP address is \`${ipAddress}\`.`
+      message = `Initialized IPChecker.\nCurrent IP address is \`${ipAddress}\`.`
     } else {
-      message = `IP address changes detected.\n New IP address is \`${ipAddress}\`.\n (Old address is ${this.ipAddress}.)`
+      message = `IP address changes detected.\nNew IP address is \`${ipAddress}\`.\n(Old address is ${this.ipAddress}.)`
     }
 
-    await axios.post(this.webhookURL, { text: message })
+    await axios.post(webhookURL, { text: message })
   }
 
   async run () {

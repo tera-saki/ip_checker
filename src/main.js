@@ -1,12 +1,12 @@
 const IPChecker = require('./IPChecker')
-const { webhookURL, interval } = require('./config')
+const { interval } = require('./config')
 
 function sleep (sec) {
   return new Promise(r => setTimeout(r, sec * 1000))
 }
 
 async function main () {
-  const ipChecker = new IPChecker(webhookURL)
+  const ipChecker = new IPChecker()
 
   while (true) {
     try {
